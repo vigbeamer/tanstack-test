@@ -13,14 +13,12 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 const rootRoute = createRootRoute({
   component: () => {
     useEffect(() => {
-      window.userflow.init("ct_asy4wrzohrd6podpeziippil3i");
-      window.userflow.setServerEndpoint("userflow.local:4040");
+      window.userflow.init(import.meta.env.VITE_USERFLOWJS_TOKEN);
 
-      window.userflow.identify(78651, {
-        email: "alphavignesh98@gmail.com",
+      window.userflow.identify(78621, {
+        email: "test-user1@gmail.com",
         localeId: "en-US",
       });
-      console.log({ isIdentified: window.userflow.isIdentified() });
     }, []);
 
     return (
