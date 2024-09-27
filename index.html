@@ -5,21 +5,74 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <script type="text/javascript">
+      (window.heapReadyCb = window.heapReadyCb || []),
+        (window.heap = window.heap || []),
+        (heap.load = function (e, t) {
+          (window.heap.envId = e),
+            (window.heap.clientConfig = t = t || {}),
+            (window.heap.clientConfig.shouldFetchServerConfig = !1);
+          var a = document.createElement("script");
+          (a.type = "text/javascript"),
+            (a.async = !0),
+            (a.src =
+              "https://cdn.us.heap-api.com/config/" + e + "/heap_config.js");
+          var r = document.getElementsByTagName("script")[0];
+          r.parentNode.insertBefore(a, r);
+          var n = [
+              "init",
+              "startTracking",
+              "stopTracking",
+              "track",
+              "resetIdentity",
+              "identify",
+              "getSessionId",
+              "getUserId",
+              "getIdentity",
+              "addUserProperties",
+              "addEventProperties",
+              "removeEventProperty",
+              "clearEventProperties",
+              "addAccountProperties",
+              "addAdapter",
+              "addTransformer",
+              "addTransformerFn",
+              "onReady",
+              "addPageviewProperties",
+              "removePageviewProperty",
+              "clearPageviewProperties",
+              "trackPageview",
+            ],
+            i = function (e) {
+              return function () {
+                var t = Array.prototype.slice.call(arguments, 0);
+                window.heapReadyCb.push({
+                  name: e,
+                  fn: function () {
+                    heap[e] && heap[e].apply(heap, t);
+                  },
+                });
+              };
+            };
+          for (var p = 0; p < n.length; p++) heap[n[p]] = i(n[p]);
+        });
+      heap.load("3505074737");
+    </script>
     <!-- <script
       type="module"
       src="https://js.userflow.local:4040/assets/userflowjs/userflow.js"
     ></script> -->
-    <script
+    <!-- <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=0ae21490-b5fa-4047-93fd-957de9c4d47b"
-    ></script>
+    ></script> -->
 
-    <script>
+    <!-- <script>
       !(function () {
         var e = "undefined" == typeof window ? {} : window,
           r = e.userflow;
         if (!r) {
-          var t = "https://js.userflow.com/",
+          var t = "https://js.userflow.local:4040/",
             n = null;
           r = e.userflow = {
             _stubbed: !0,
@@ -60,7 +113,8 @@
                       })(navigator.userAgent))
                       ? ((s.type = "module"),
                         (s.src =
-                          a.USERFLOWJS_ES2020_URL || t + "es2020/userflow.js"))
+                          a.USERFLOWJS_ES2020_URL ||
+                          t + "assets/userflowjs/userflow.js"))
                       : (s.src =
                           a.USERFLOWJS_LEGACY_URL || t + "legacy/userflow.js"),
                       (s.onload = function () {
@@ -148,6 +202,37 @@
       //   email: "USER_EMAIL",
       //   signed_up_at: "USER_SIGNED_UP_AT",
       // });
+    </script> -->
+    <script>
+      /* chameleon.io script */
+
+      !(function (d, w) {
+        var t =
+            "SfeCwhhanvCYWTDUC7RhRhuOXg2cqYNDj91ZNhFXSak0P3-1SQsK6-Fq8c6GJnVkQzIxW4",
+          c = "chmln",
+          i = d.createElement("script");
+        if ((w[c] || (w[c] = {}), !w[c].root)) {
+          (w[c].accountToken = t),
+            (w[c].location = w.location.href.toString()),
+            (w[c].now = new Date()),
+            (w[c].fastUrl = "https://fast.chameleon.io/");
+          var m =
+            "identify alias track clear set show on off custom help _data".split(
+              " "
+            );
+          for (var s = 0; s < m.length; s++) {
+            !(function () {
+              var t = (w[c][m[s] + "_a"] = []);
+              w[c][m[s]] = function () {
+                t.push(arguments);
+              };
+            })();
+          }
+          (i.src = w[c].fastUrl + "messo/" + t + "/messo.min.js"),
+            (i.async = !0),
+            d.head.appendChild(i);
+        }
+      })(document, window);
     </script>
   </head>
   <body>

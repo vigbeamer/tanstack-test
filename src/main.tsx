@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   Outlet,
@@ -9,19 +9,28 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import userflow from "userflow.js";
 
 const rootRoute = createRootRoute({
   component: () => {
+    const [email, setEmail] = useState("");
     useEffect(() => {
       // console.log(import.meta.env.VITE_USERFLOWJS_TOKEN);
       // window.userflow.setServerEndpoint("userflow.local:4040");
-      window.userflow.init(import.meta.env.VITE_USERFLOWJS_TOKEN);
-
-      window.userflow.identify(78921, {
-        email: "test-user2@gmail.com",
-        localeId: "en-US",
-      });
+      // window.userflow.init(import.meta.env.VITE_USERFLOWJS_TOKEN);
+      // window.userflow.identify(23213, {
+      //   email: "test-user231@gmail.com",
+      //   localeId: "en-US",
+      // });
+      // console.log(window.userflow.isIdentified());
     }, []);
+
+    const identifyUser = () => {
+      console.log("identify-user", email);
+      window.chmln.identify("23233223", {
+        email: email,
+      });
+    };
 
     return (
       <>
@@ -32,6 +41,12 @@ const rootRoute = createRootRoute({
           <Link to="/about" className="[&.active]:font-bold">
             About
           </Link>
+          <input
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <button onClick={identifyUser}> Submit</button>
         </div>
         <hr />
         <Outlet />
