@@ -26,8 +26,10 @@ const rootRoute = createRootRoute({
     }, []);
 
     const identifyUser = () => {
-      console.log("identify-user", email);
-      window.chmln.identify("23233223", {
+      const id = Math.floor(Math.random() * (20000 - 1 + 1)) + 1;
+      console.log("user mail", email);
+      console.log("user id", id);
+      window.chmln.identify(id, {
         email: email,
       });
     };
